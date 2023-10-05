@@ -9,7 +9,7 @@ interface Response<T> {
 const useData = <T>(
   endPoint: string,
   requestConfig?: AxiosRequestConfig,
-  deps?: any
+  deps?: any[]
 ) => {
   const [data, setData] = useState<T[]>([]);
   const [errors, setError] = useState([]);
@@ -34,7 +34,7 @@ const useData = <T>(
         });
       return () => cancel();
     },
-    deps ? [deps.id] : []
+    deps?.length ? deps : []
   );
 
   return { data, errors, isLoading };
