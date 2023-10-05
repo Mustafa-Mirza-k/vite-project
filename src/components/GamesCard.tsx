@@ -25,7 +25,7 @@ const GamesCard = ({ game }: Game) => {
         <Stack mt="6" spacing="1">
           <Heading size="md">{game.name}</Heading>
           <HStack justifyContent={"space-between"}>
-            <PlatformIcons
+            <PlatformIcons key={game.id}
               platform={game.parent_platforms.map((p) => p.platform)}
             />
             <MetaCritic metacritic={game.metacritic} />
