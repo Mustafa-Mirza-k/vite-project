@@ -1,27 +1,22 @@
-import { useEffect, useState } from "react";
-import gamesService, { Games } from "../services/games-service";
-import { CanceledError } from "axios";
-interface Response {
-    count: number;
-    results: Games[];
-  }
-  
-const useGames = () => {
-    const [games, setGames] = useState<Games[]>([]);
-    const [errors, setError] = useState([]);
-    useEffect(() => {
-        const { response, cancel } = gamesService.getGames<Response>();
-        response
-          .then(({ data }) => {
-            setGames(data.results);
-          })
-          .catch((err) => {
-            if (err instanceof CanceledError) return;
-            setError(err.message);
-          });
-        return () => cancel();
-      }, []);
+import useData from "./useData";
 
-      return {games, errors};
+export interface Games {
+  id: number;
+  slug: string;
+  name: string;
+  released: Date;
+  background_image: string;
+  rating: Float32Array;
+  parent_platforms: { platform: Platform }[];
+  metacritic: number;
 }
+
+export interface Platform {
+  id: number;
+  slug: string;
+  name: string;
+}
+
+const useGames = () => useData<Games>("/games");
+
 export default useGames;
