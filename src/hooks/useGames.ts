@@ -22,7 +22,7 @@ const useGames = (selectedGenre: Genre | null) =>
   useData<Games>(
     "/games",
     { params: { genres: selectedGenre?.id } },
-    selectedGenre?.id
+    selectedGenre
   );
 
 export default useGames;
