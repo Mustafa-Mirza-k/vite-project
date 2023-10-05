@@ -1,4 +1,3 @@
-import { Games } from "../services/api-service";
 import {
   Card,
   CardBody,
@@ -10,12 +9,13 @@ import {
 import PlatformIcons from "./PlatformIcons";
 import MetaCritic from "./MetaCritic";
 import { CroppedImage } from "../services/cropped-image";
+import { Games } from "../hooks/useGames";
 interface Game {
   game: Games;
 }
 const GamesCard = ({ game }: Game) => {
   return (
-    <Card className="Card"  >
+    <Card className="Card">
       <CardBody>
         <Image
           src={CroppedImage(game.background_image)}
@@ -28,7 +28,7 @@ const GamesCard = ({ game }: Game) => {
             <PlatformIcons
               platform={game.parent_platforms.map((p) => p.platform)}
             />
-            <MetaCritic metacritic={game.metacritic}/>
+            <MetaCritic metacritic={game.metacritic} />
           </HStack>
           {/* <Text>
           This sofa is perfect for modern tropical spaces, baroque inspired
