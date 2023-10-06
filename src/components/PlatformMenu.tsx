@@ -9,17 +9,22 @@ interface Props {
 
 const PlatformMenu = ({ onPlatformChange }: Props) => {
   const { data, errors } = usePlatforms();
-  
+
   if (errors.length) return null;
   return (
     <Menu>
-      <MenuButton as={Button} m={"35px"} rightIcon={<BsChevronDown />}>
+      <MenuButton as={Button}  rightIcon={<BsChevronDown />}>
         Platforms
       </MenuButton>
       <MenuList>
         {data &&
           data.map((platform) => (
-            <MenuItem onClick={() => onPlatformChange(platform)} key={platform.id}>{platform.name}</MenuItem>
+            <MenuItem
+              onClick={() => onPlatformChange(platform)}
+              key={platform.id}
+            >
+              {platform.name}
+            </MenuItem>
           ))}
       </MenuList>
     </Menu>

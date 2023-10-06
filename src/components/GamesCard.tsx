@@ -10,6 +10,7 @@ import PlatformIcons from "./PlatformIcons";
 import MetaCritic from "./MetaCritic";
 import { CroppedImage } from "../services/cropped-image";
 import { Games } from "../hooks/useGames";
+import noImageIcon from "../assets/noImageFound.png"
 interface Game {
   game: Games;
 }
@@ -18,7 +19,8 @@ const GamesCard = ({ game }: Game) => {
     <Card className="Card">
       <CardBody>
         <Image
-          src={CroppedImage(game.background_image)}
+          mx={"auto"}
+          src={game.background_image ? CroppedImage(game.background_image) : noImageIcon}
           alt={game.name}
           borderRadius="lg"
         />
