@@ -10,8 +10,9 @@ interface Prop {
 
 const GameGrid = ({ gameQuery }: Prop) => {
   const { data, errors, isLoading } = useGames(gameQuery);
+  console.log(errors)
   let numberOfCards = [1, 2, 3, 4, 5, 6];
-  if (errors) return errors;
+  if (errors && errors.length) return errors;
   return (
     <SimpleGrid
       spacing={10}

@@ -17,7 +17,6 @@ const useData = <T>(
   useEffect(
     () => {
       setIsLoading(true);
-      console.log(deps)
       const { response, cancel } = apiService.getData<Response<T>>(
         endPoint,
         requestConfig
