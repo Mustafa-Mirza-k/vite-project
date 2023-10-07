@@ -10,6 +10,7 @@ export interface Games {
   rating: Float32Array;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  rating_top: number
 }
 
 export interface Platform {
