@@ -25,13 +25,13 @@ const GamesCard = ({ game }: Game) => {
           borderRadius="lg"
         />
         <Stack mt="6" spacing="1">
-          <Heading size="md">{game.name}</Heading>
-          <HStack justifyContent={"space-between"}>
+          <HStack justifyContent={"space-between"} mb={2}>
             <PlatformIcons key={game.id}
               platform={game.parent_platforms.map((p) => p.platform)}
             />
             <MetaCritic metacritic={game.metacritic} />
           </HStack>
+          <Heading size="md">{game.name}</Heading>
           {/* <Text>
           This sofa is perfect for modern tropical spaces, baroque inspired
           spaces, earthy toned spaces and for people who love a chic design with a

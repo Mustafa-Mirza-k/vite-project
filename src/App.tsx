@@ -48,9 +48,9 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area={"main"}>
-          <VStack alignItems={"left"} ml={10} spacing={5}>
+          <VStack alignItems={"left"} mx={10} spacing={5}>
             <GameHeading gameQuery={gameQuery} />
-            <HStack spacing={5} mb={5}>
+            <HStack spacing={5} >
               <PlatformMenu
                 onPlatformChange={(platform: Platform) =>
                   setGameQuery({ ...gameQuery, platform })
@@ -63,8 +63,8 @@ function App() {
                 }
               />
             </HStack>
+            <GameGrid gameQuery={gameQuery} />
           </VStack>
-          <GameGrid gameQuery={gameQuery} />
         </GridItem>
       </Grid>
     </>
